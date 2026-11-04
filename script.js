@@ -8,19 +8,16 @@ function findNumber(n) {
     let min = 0;
     let max = n - 1;
     let avarage;
-    let i = 0;
+    let i = 1;
 
-    while(true){
-        if (max < min) {
-            return "-1, target no presente en el array";
-        }
+    while(min <= max ){
 
         avarage = Math.floor((min + max) / 2);
-        i++;
 
         if (primes[avarage] === target) {
             return "intento: " + i + ". Lo encontre tu numero es " + primes[avarage];
         }
+        i++;
 
         if (primes[avarage] < target) {
             min = avarage + 1;
@@ -28,6 +25,7 @@ function findNumber(n) {
             max = avarage - 1;
         }
     }
+    return "intento: " + i + " -1";
 }
 
 console.log(findNumber(primes.length));
